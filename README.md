@@ -1,6 +1,6 @@
 # smarteyes
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=medaminehssini&label=Profile%20views&color=0e75b6&style=flat" alt="medaminehssini" /> </p>
+<p align="left"> <img src="https://github.com/medaminehssini/smarteyes/blob/main/android/app/src/main/res/mipmap-hdpi/splash.png?raw=true" alt="smartEyes" /> </p>
 
 # How to run this example
 ```bash
