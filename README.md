@@ -1,6 +1,6 @@
 # smarteyes
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MVCoconut/Lobby)
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=medaminehssini" alt="medaminehssini" /></a> </p>
 
 
 # How to run this example
