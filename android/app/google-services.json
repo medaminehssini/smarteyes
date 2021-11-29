@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844612044324",
+    "project_id": "smarteyes-ccd6b",
+    "storage_bucket": "smarteyes-ccd6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844612044324:android:6da24e8927bdfe58b47ab1",
+        "android_client_info": {
+          "package_name": "com.smarteyes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844612044324-0r125c726mpgheapobknqcncpf9ukm9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVnHls2m23ToDSgR8U6I6RfdOl9SkXxCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844612044324-0r125c726mpgheapobknqcncpf9ukm9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "smarteyes",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.9",
+    "@react-native-community/slider": "^4.1.11",
+    "@react-native-voice/voice": "^3.2.2",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
+    "native-base": "^3.2.1",
+    "react": "17.0.2",
+    "react-native": "0.66.1",
+    "react-native-audio-recorder-player": "^3.2.0",
+    "react-native-camera": "^4.2.1",
+    "react-native-camera-hooks": "^0.5.2",
+    "react-native-image-picker": "^4.1.2",
+    "react-native-maps": "^0.29.4",
+    "react-native-maps-directions": "^1.8.0",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.8.0",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-tesseract-ocr": "^2.0.3",
+    "react-native-tts": "^4.1.0",
+    "react-native-vector-icons": "^9.0.0",
+    "rn-fetch-blob": "^0.12.0",
+    "styled-components": "^5.3.3",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.65.0",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
