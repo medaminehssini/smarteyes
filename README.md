@@ -1,6 +1,6 @@
 # smarteyes
 
-<p align="center"> <img  height="400" src="https://github.com/medaminehssini/smarteyes/blob/main/screens/assets/images/logo.png" alt="smartEyes" /> </p>
+<p align="center"> <img  width="400" src="https://github.com/medaminehssini/smarteyes/blob/main/screens/assets/images/logo.png" alt="smartEyes" /> </p>
 
 # How to run this example
 ```bash
