@@ -1,9 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {Button, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Line, ObjectDetected, ResponseObjectDetection} from '../mlkit';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {ObjectDetected, ResponseObjectDetection} from '../mlkit';
 import Tts from 'react-native-tts';
-import {Text} from 'react-native-svg';
-import {width, zIndex} from 'styled-system';
 
 type ResponseObjectDetectionRenderProps = {
   response: ResponseObjectDetection;

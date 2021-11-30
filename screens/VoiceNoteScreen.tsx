@@ -131,7 +131,12 @@ export const VoiceNoteScreen = ({navigation}: any) => {
             source={require('./assets/images/v.png')}
           />
           <Text style={styles.wavesText}>
-            {recording.recordTime ? recording.recordTime : '00:00'}
+            {recording.recordTime
+              ? recording.recordTime.substring(
+                  0,
+                  recording.recordTime.length - 3,
+                )
+              : '00:00'}
           </Text>
         </View>
       </View>

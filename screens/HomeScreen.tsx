@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  PermissionsAndroid,
+} from 'react-native';
 import Tts from 'react-native-tts';
 
 export const HomeScreen = (props: any) => {
@@ -14,9 +21,27 @@ export const HomeScreen = (props: any) => {
     ? 'Say something...'
     : 'press Start button';
 
+  const getPermissions = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    );
+
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+    );
+
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+    );
+
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+    );
+  };
   useEffect(() => {
     Tts.setDefaultLanguage('en-US');
     Tts.speak('Welcome to smart eyes');
+    getPermissions();
     setTimeout(() => {
       getMenu();
     }, 2000);

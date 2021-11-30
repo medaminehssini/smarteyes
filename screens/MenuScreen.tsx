@@ -32,13 +32,13 @@ const MenuScreen = ({navigation}: PropsMenuScreen) => {
 
     let result = event.value[0].toLowerCase();
 
-    if (result.includes('text') && result.includes('speech')) {
+    if (result.includes('text') || result.includes('speech')) {
       navigation.navigate('TTS');
-    } else if (result.includes('detection') && result.includes('object')) {
+    } else if (result.includes('detection') || result.includes('object')) {
       navigation.navigate('ObjectDetection');
     } else if (result.includes('trajectory')) {
       navigation.navigate('Path');
-    } else if (result.includes('note') && result.includes('vocal')) {
+    } else if (result.includes('note') || result.includes('voice')) {
       navigation.navigate('VoiceNote');
     } else {
       openMic();
