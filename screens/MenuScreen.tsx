@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Tts from 'react-native-tts';
+import Voice from '@react-native-voice/voice';
 
 type PropsMenuScreen = {
   navigation: any;
@@ -16,20 +17,76 @@ type PropsMenuScreen = {
 const MenuScreen = ({navigation}: PropsMenuScreen) => {
   const [choice, setChoice] = useState('');
 
+  const _onSpeechStart = () => {
+    console.log('onSpeechStart');
+  };
+  const _onSpeechEnd = () => {
+    console.log('onSpeechEnd');
+  };
+
+  const _onSpeechResults = (event: any) => {
+    console.log('onSpeechResults');
+    console.log('onSpeechResults');
+
+    console.log(event);
+
+    let result = event.value[0].toLowerCase();
+
+    if (result.includes('text') && result.includes('speech')) {
+      navigation.navigate('TTS');
+    } else if (result.includes('detection') && result.includes('object')) {
+      navigation.navigate('ObjectDetection');
+    } else if (result.includes('trajectory')) {
+      navigation.navigate('Path');
+    } else if (result.includes('note') && result.includes('vocal')) {
+      navigation.navigate('VoiceNote');
+    } else {
+      openMic();
+    }
+  };
+
+  const _onSpeechError = (event: any) => {
+    console.log('_onSpeechError');
+    console.log(event.error);
+    openMic();
+  };
+
+  const openMic = () => {
+    setTimeout(() => {
+      Voice.start('en-US');
+    }, 1000);
+    //   setTimeout(() => {
+    //     Voice.stop();
+    //     setIsRecord(false);
+    //   }, 10000);
+  };
+
   useEffect(() => {
-    Tts.setDefaultLanguage('fr-FR');
+    const unsubscribe = navigation.addListener('focus', () => {
+      openMic();
+    });
+    openMic();
+    Voice.onSpeechStart = _onSpeechStart;
+    Voice.onSpeechEnd = _onSpeechEnd;
+    Voice.onSpeechResults = _onSpeechResults;
+    Voice.onSpeechError = _onSpeechError;
+    return unsubscribe;
+  }, [navigation]);
+
+  useEffect(() => {
+    Tts.setDefaultLanguage('en-US');
   }, []);
   const goToView = (value: string) => {
     if (choice !== value) {
       let v = '';
       if (value == 'TTS') {
-        v = 'Text en vocale';
+        v = 'Text to speech';
       } else if (value == 'VoiceNote') {
-        v = 'Note vocale';
+        v = 'Voice note';
       } else if (value == 'Path') {
-        v = 'Trajectoire';
+        v = 'Trajectory';
       } else if (value == 'ObjectDetection') {
-        v = 'Detection d’objet';
+        v = 'Object Detection';
       }
       Tts.speak(v);
       setChoice(value);
@@ -39,23 +96,23 @@ const MenuScreen = ({navigation}: PropsMenuScreen) => {
     }
   };
   return (
-    <ScrollView contentContainerStyle={noneModeStyles._viewport}>
-      <View style={noneModeStyles._Text_Menu}>
-        <Text style={noneModeStyles._Menu}>Menu</Text>
+    <ScrollView contentContainerStyle={styles._viewport}>
+      <View style={styles._Text_Menu}>
+        <Text style={styles._Menu}>Menu</Text>
       </View>
 
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
           onPress={() => goToView('VoiceNote')}
-          style={noneModeStyles.btnView}>
-          <View style={noneModeStyles.layer}>
-            <View style={noneModeStyles.rectangle}>
+          style={styles.btnView}>
+          <View style={styles.layer}>
+            <View style={styles.rectangle}>
               <Image
-                style={noneModeStyles.imageIcon}
+                style={styles.imageIcon}
                 source={require('./assets/images/mic.png')}
               />
             </View>
-            <Text style={noneModeStyles.textStyle}>Note vocale{'\n'}</Text>
+            <Text style={styles.textStyle}>Voice note{'\n'}</Text>
             <Image
               source={require('./assets/images/btn1.png')}
               style={{height: 185, width: '100%'}}></Image>
@@ -63,16 +120,16 @@ const MenuScreen = ({navigation}: PropsMenuScreen) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={noneModeStyles.btnView}
+          style={styles.btnView}
           onPress={() => goToView('TTS')}>
-          <View style={noneModeStyles.layer}>
-            <View style={noneModeStyles.rectangle}>
+          <View style={styles.layer}>
+            <View style={styles.rectangle}>
               <Image
-                style={noneModeStyles.imageIcon}
+                style={styles.imageIcon}
                 source={require('./assets/images/docs.png')}
               />
             </View>
-            <Text style={noneModeStyles.textStyle}>Texte en vocale</Text>
+            <Text style={styles.textStyle}>Text to speech</Text>
             <Image
               source={require('./assets/images/btn.png')}
               style={{height: 185, width: '100%'}}></Image>
@@ -81,33 +138,33 @@ const MenuScreen = ({navigation}: PropsMenuScreen) => {
       </View>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
-          style={noneModeStyles.btnView}
+          style={styles.btnView}
           onPress={() => goToView('ObjectDetection')}>
-          <View style={noneModeStyles.layer}>
-            <View style={noneModeStyles.rectangle}>
+          <View style={styles.layer}>
+            <View style={styles.rectangle}>
               <Image
-                style={noneModeStyles.imageIcon}
+                style={styles.imageIcon}
                 source={require('./assets/images/object.png')}
               />
             </View>
 
-            <Text style={noneModeStyles.textStyle}>Detection d’objet</Text>
+            <Text style={styles.textStyle}>Object Detection</Text>
             <Image
               source={require('./assets/images/btn.png')}
               style={{height: 185, width: '100%'}}></Image>
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={noneModeStyles.btnView}
+          style={styles.btnView}
           onPress={() => goToView('Path')}>
-          <View style={noneModeStyles.layer}>
-            <View style={noneModeStyles.rectangle}>
+          <View style={styles.layer}>
+            <View style={styles.rectangle}>
               <Image
-                style={noneModeStyles.imageIcon}
+                style={styles.imageIcon}
                 source={require('./assets/images/trajictoire.png')}
               />
             </View>
-            <Text style={noneModeStyles.textStyle}>Trajectoire</Text>
+            <Text style={styles.textStyle}>Trajectory</Text>
             <Image
               source={require('./assets/images/btn1.png')}
               style={{height: 185, width: '100%'}}></Image>
@@ -119,7 +176,7 @@ const MenuScreen = ({navigation}: PropsMenuScreen) => {
 };
 export default MenuScreen;
 
-const noneModeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   _viewport: {
     flexGrow: 1,
     justifyContent: 'center',

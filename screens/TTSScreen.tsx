@@ -18,7 +18,7 @@ export const TTSScreen = ({navigation}: any) => {
   const [{cameraRef}, {takePicture}] = useCamera();
 
   useEffect(() => {
-    Tts.setDefaultLanguage('fr-FR');
+    Tts.setDefaultLanguage('en-US');
   }, []);
 
   const onTakePhoto = async () => {
@@ -30,14 +30,14 @@ export const TTSScreen = ({navigation}: any) => {
         const response = await textRecognition(uri);
         console.log(response);
         if (response?.blocks.length > 0) {
-          Tts.speak('La photo est capturé avec succès');
+          Tts.speak('The picture is captured successfully');
           navigation.navigate('ResultTTS', {
             url: uri,
             response: response,
           });
         } else {
           //Speak not found
-          Tts.speak('Merci de reprendre la photo');
+          Tts.speak('Please take the picture again');
         }
       } catch (error) {
         console.log(error);
@@ -48,10 +48,10 @@ export const TTSScreen = ({navigation}: any) => {
   };
 
   return (
-    <TouchableOpacity onPress={onTakePhoto} style={noneModeStyles._page2}>
+    <TouchableOpacity onPress={onTakePhoto} style={styles._page2}>
       <TransparentHeader navigation={navigation} />
 
-      <View style={noneModeStyles.document_container}>
+      <View style={styles.document_container}>
         <TouchableOpacity
           onPress={onTakePhoto}
           style={{
@@ -62,15 +62,15 @@ export const TTSScreen = ({navigation}: any) => {
             height: '100%',
             zIndex: 9999,
           }}></TouchableOpacity>
-        <RNCamera ref={cameraRef} style={noneModeStyles._document}></RNCamera>
+        <RNCamera ref={cameraRef} style={styles._document}></RNCamera>
       </View>
-      <View style={noneModeStyles.apparei_photo_bar}>
-        <View style={noneModeStyles.camera}>
+      <View style={styles.apparei_photo_bar}>
+        <View style={styles.camera}>
           <TouchableOpacity
-            style={noneModeStyles.camera_container}
+            style={styles.camera_container}
             onPress={onTakePhoto}>
-            <View style={noneModeStyles.appareil_photo_container}>
-              <View style={noneModeStyles.appareil_photo}>
+            <View style={styles.appareil_photo_container}>
+              <View style={styles.appareil_photo}>
                 <Image
                   style={{height: '95%', width: '95%'}}
                   source={require('./assets/images/camera.png')}
@@ -79,7 +79,7 @@ export const TTSScreen = ({navigation}: any) => {
             </View>
           </TouchableOpacity>
         </View>
-        <View style={noneModeStyles.box}>
+        <View style={styles.box}>
           <Svg style={{height: '100%', width: '100%'}}>
             <Path
               fill={'#C2C3CE'}
@@ -94,7 +94,7 @@ export const TTSScreen = ({navigation}: any) => {
   );
 };
 
-const noneModeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   _page2: {
     backgroundColor: 'rgb(255, 255, 255)',
     justifyContent: 'center',

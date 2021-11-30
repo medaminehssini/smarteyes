@@ -18,9 +18,10 @@ import {HomeScreen} from './screens/HomeScreen';
 import MenuScreen from './screens/MenuScreen';
 import {ObjectDetectionScreen} from './screens/ObjectDetectionScreen';
 import {PathScreen} from './screens/PathScreen';
+import ResultObjectDetectionScreen from './screens/ResultObjectDetectionScreen';
 import ResultTTS from './screens/ResultTTS';
 import ResultVoiceNote from './screens/ResultVoiceNote';
-import TestScreen from './screens/TestScreen';
+import {TestScreen} from './screens/TestScreen';
 import {TTSScreen} from './screens/TTSScreen';
 import {VoiceNoteScreen} from './screens/VoiceNoteScreen';
 
@@ -45,6 +46,12 @@ const App = () => {
           component={HomeScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="ResultObjectDetection"
+          component={ResultObjectDetectionScreen}
+          options={{headerShown: false}}
+        />
+
         <Stack.Screen
           name="ResultVoiceNote"
           component={ResultVoiceNote}

@@ -138,7 +138,7 @@ const ResultVoiceNote = ({navigation}: any) => {
     }
   };
   return (
-    <View style={noneModeStyles._page4}>
+    <View style={styles._page4}>
       <View style={{flex: 1}}>
         <Text
           style={{
@@ -147,7 +147,7 @@ const ResultVoiceNote = ({navigation}: any) => {
             marginBottom: 20,
             textAlign: 'center',
           }}>
-          Liste enregistrée
+          Saved List
         </Text>
       </View>
       <View style={{flex: 5}}>
@@ -224,13 +224,13 @@ const ResultVoiceNote = ({navigation}: any) => {
           </Text>
         </View>
       </View>
-      <View style={noneModeStyles.apparei_photo_bar}>
-        <View style={noneModeStyles.camera}>
-          <View style={noneModeStyles.camera_container}>
+      <View style={styles.apparei_photo_bar}>
+        <View style={styles.camera}>
+          <View style={styles.camera_container}>
             <TouchableOpacity
               onPress={!playing.isPlaying && pause ? playNow : onPausePlay}
-              style={noneModeStyles.appareil_photo_container}>
-              <View style={noneModeStyles.appareil_photo}>
+              style={styles.appareil_photo_container}>
+              <View style={styles.appareil_photo}>
                 <Image
                   style={{height: '80%', width: '80%'}}
                   source={
@@ -243,7 +243,7 @@ const ResultVoiceNote = ({navigation}: any) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={noneModeStyles.box}>
+        <View style={styles.box}>
           <Svg style={{height: '100%', width: '100%'}}>
             <Path
               fill={'#C2C3CE'}
@@ -259,7 +259,7 @@ const ResultVoiceNote = ({navigation}: any) => {
 };
 export default ResultVoiceNote;
 
-const noneModeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   _page4: {
     width: Dimensions.get('window').width,
     minHeight: Dimensions.get('window').height,

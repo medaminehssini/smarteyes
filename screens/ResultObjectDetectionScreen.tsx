@@ -9,19 +9,22 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import {Svg, Path} from 'react-native-svg';
-import {ResponseRenderer} from '../components/ResponseRenderer';
+import {ResponseObjectDetectionRender} from '../components/ResponseObjectDetectionRender';
 import TransparentHeader from '../components/TransparentHeader';
 
-type PropsResultTTS = {
+type PropsResultObjectDetectionScreen = {
   navigation: any;
   route: any;
   url: string;
 };
 
-const ResultTTS = ({navigation, route}: PropsResultTTS) => {
+const ResultObjectDetectionScreen = ({
+  navigation,
+  route,
+}: PropsResultObjectDetectionScreen) => {
   const {url, response} = route.params;
   const aspectRatio = response.height / (response.width - 40);
-  const {width: windowWidth, height: windowHeight} = useWindowDimensions();
+  const {width: windowWidth} = useWindowDimensions();
   useEffect(() => {
     console.log(route.params);
   }, []);
@@ -41,7 +44,7 @@ const ResultTTS = ({navigation, route}: PropsResultTTS) => {
             source={{uri: url}}
           />
           {!!response && (
-            <ResponseRenderer
+            <ResponseObjectDetectionRender
               response={response}
               scale={(windowWidth - 40) / (response.width - 40)}
             />
@@ -77,7 +80,7 @@ const ResultTTS = ({navigation, route}: PropsResultTTS) => {
     </View>
   );
 };
-export default ResultTTS;
+export default ResultObjectDetectionScreen;
 
 const styles = StyleSheet.create({
   _page2: {

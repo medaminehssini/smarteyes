@@ -36,7 +36,7 @@ export const Block = ({line, scale}: BlockProps) => {
   const [isPaused, seIsPaused] = useState(false);
 
   useEffect(() => {
-    Tts.setDefaultLanguage('fr-FR');
+    Tts.setDefaultLanguage('en-US');
     Tts.speak(line.text);
 
     return () => {

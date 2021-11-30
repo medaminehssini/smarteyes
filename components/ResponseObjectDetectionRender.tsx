@@ -15,9 +15,11 @@ export const ResponseObjectDetectionRender = ({
 }: ResponseObjectDetectionRenderProps) => {
   return (
     <View style={{position: 'absolute'}}>
-      {response.objects.map((object, key) => (
-        <Object key={key} object={object} scale={scale} />
-      ))}
+      {response.objects.map((object, key) => {
+        if (object.label) {
+          return <Object key={key} object={object} scale={scale} />;
+        }
+      })}
     </View>
   );
 };
@@ -39,8 +41,8 @@ export const Object = ({object, scale}: ObjectProps) => {
   const [isPaused, seIsPaused] = useState(false);
 
   useEffect(() => {
-    Tts.setDefaultLanguage('fr-FR');
-    // Tts.speak(object.label);
+    Tts.setDefaultLanguage('en-US');
+    Tts.speak(object.label);
     console.log(object.label);
     return () => {
       Tts.stop();
@@ -70,19 +72,7 @@ export const Object = ({object, scale}: ObjectProps) => {
         borderColor: 'red',
         borderWidth: 1,
         ...rect,
-      }}>
-      <View
-        style={{
-          borderColor: 'green',
-          borderWidth: 1,
-          height: 100,
-          zIndex: 99,
-          position: 'absolute',
-          width: '100%',
-        }}>
-        <Text style={styles.text}>XD</Text>
-      </View>
-    </TouchableOpacity>
+      }}></TouchableOpacity>
   );
 };
 

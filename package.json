@@ -33,7 +33,8 @@
     "react-native-vector-icons": "^9.0.0",
     "rn-fetch-blob": "^0.12.0",
     "styled-components": "^5.3.3",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "translate-google-api": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

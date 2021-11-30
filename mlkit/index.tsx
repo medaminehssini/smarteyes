@@ -34,7 +34,7 @@ export type ObjectDetected = {
 
 export type ResponseObjectDetection = {
   objects: ObjectDetected[];
-  nb: number;
+  nbr: number;
   width: number;
   height: number;
 };

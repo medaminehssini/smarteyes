@@ -60,11 +60,11 @@ export const VoiceNoteScreen = ({navigation}: any) => {
 
   useEffect(() => {
     getData();
-    Tts.setDefaultLanguage('fr-FR');
+    Tts.setDefaultLanguage('en-US');
   }, []);
 
   const onStartRecord = async () => {
-    Tts.speak("L'enregistrement vocal a commencé");
+    Tts.speak('Voice recording is started');
 
     const dirs = RNFetchBlob.fs.dirs;
     const path = Platform.select({
@@ -84,7 +84,7 @@ export const VoiceNoteScreen = ({navigation}: any) => {
   };
 
   const onStopRecord = async () => {
-    Tts.speak('Enregistrement audio terminé');
+    Tts.speak('voice recording is complete');
     const result = await audioRecorderPlayer.stopRecorder();
     audioRecorderPlayer.removeRecordBackListener();
     const t = recording.recordTime.substring(
@@ -109,7 +109,7 @@ export const VoiceNoteScreen = ({navigation}: any) => {
   };
 
   return (
-    <View style={noneModeStyles._page4}>
+    <View style={styles._page4}>
       <TouchableOpacity
         onPress={recording.isRecording ? onStopRecord : onStartRecord}
         style={{
@@ -119,29 +119,29 @@ export const VoiceNoteScreen = ({navigation}: any) => {
           top: 0,
           zIndex: 5,
         }}></TouchableOpacity>
-      <View style={noneModeStyles.rectangle}>
-        <View style={noneModeStyles.textContainer}>
-          <Text style={noneModeStyles.recordText}>
+      <View style={styles.rectangle}>
+        <View style={styles.textContainer}>
+          <Text style={styles.recordText}>
             Enregistrement n°{data.length > 0 ? data.length - 1 : '0'}
           </Text>
         </View>
-        <View style={noneModeStyles.waves}>
+        <View style={styles.waves}>
           <Image
             style={{height: '100%', width: '100%'}}
             source={require('./assets/images/v.png')}
           />
-          <Text style={noneModeStyles.wavesText}>
+          <Text style={styles.wavesText}>
             {recording.recordTime ? recording.recordTime : '00:00'}
           </Text>
         </View>
       </View>
-      <View style={noneModeStyles.apparei_photo_bar}>
-        <View style={noneModeStyles.camera}>
-          <View style={noneModeStyles.camera_container}>
+      <View style={styles.apparei_photo_bar}>
+        <View style={styles.camera}>
+          <View style={styles.camera_container}>
             <TouchableOpacity
-              style={noneModeStyles.appareil_photo_container}
+              style={styles.appareil_photo_container}
               onPress={recording.isRecording ? onStopRecord : onStartRecord}>
-              <View style={noneModeStyles.appareil_photo}>
+              <View style={styles.appareil_photo}>
                 <Image
                   style={{height: '80%', width: '80%'}}
                   source={
@@ -154,7 +154,7 @@ export const VoiceNoteScreen = ({navigation}: any) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={noneModeStyles.box}>
+        <View style={styles.box}>
           <View>
             <Svg style={{height: 101, width: 414}} viewBox="0 0 414 101">
               <Path
@@ -171,7 +171,7 @@ export const VoiceNoteScreen = ({navigation}: any) => {
   );
 };
 
-const noneModeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   _page4: {
     width: Dimensions.get('window').width,
     minHeight: Dimensions.get('window').height,
