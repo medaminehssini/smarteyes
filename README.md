@@ -7,5 +7,5 @@
 git clone https://github.com/medaminehssini/smarteyes
 npm install # install dependencies
 react-native run-android # run android
-react-native run-ios # build android
+react-native run-ios # run ios
 ```
